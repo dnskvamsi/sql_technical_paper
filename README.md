@@ -66,7 +66,7 @@ Normalization is a technique of organizing databases into multiple related table
 If there is duplicate data it takes lots of space and also reduces the performance when performing operations.
 so,we use Normalizations techniques to overcome this problem.
 
-![Normal Forms](https://aksakalli.github.io/images/db-norm/levels-of-normalization.svg)
+<img src="https://aksakalli.github.io/images/db-norm/levels-of-normalization.svg" width="200" height="200"/>
 
 #### **1NF**
 
@@ -176,6 +176,7 @@ The above command give the least marks obtained in the students table.
 
 #### MAX()
 This function is used to find the maximum value in a specific column which is mentioned.
+
 ```
 SELECT MAX(marks) FROM students;
 ```
@@ -183,6 +184,54 @@ The above commands gives the marks of student who scored highest.
 
 [For More Aggregate function](https://www.postgresql.org/docs/current/functions-aggregate.html)
 
+## Filters in Databases
+### How to retrive data with specified condition ?
+In DBMS we have key word to filter the data based on a specific condition.
+
+There are many way's to filter the data from the table.
+
+We use **WHERE** clause in DBMS to get the specific data which satisifies that condition in the table.
+
+```
+SELECT * FROM students WHERE marks>60;
+```
+The above commands retrives only the records of student table who scored more than 60.
+
+### LIMIT
+It is used to read only the first 5 records of the data from the table
+```
+SELECT * FROM students
+LIMIT 5
+```
+It only reads the first 5 records from the students table.
+
+With the help of OFFSET we can specify where our data should start reading from.
+```
+SELECT * FROM students
+LIMIT 5 OFFSET 2;
+```
+It display's  5 records of the data starting from 2nd record.
+
+### GROUP BY
+GROUP BY clause is used to group the data based on categorical column data.
+
+```
+SELECT class,AVG(Marks) FROM students
+GROUP BY class;
+```
+The above command gives the average marks of each class.
+
+### ORDER BY
+
+ORDER BY clause is used to sort the data based upon the specific column.
+
+```
+SELECT marks FROM students
+ORDER BY marks ASC| DESC;
+```
+ASC stands for Ascending order. It display's the marks in the ascending order.
+
+DESC stands for descending order. It display's the marks in the descending order.
 
 
 ## Triggers
